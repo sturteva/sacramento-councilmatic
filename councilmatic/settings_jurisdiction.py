@@ -4,17 +4,17 @@
 # These settings are required #
 ###############################
 
-OCD_JURISDICTION_ID = 'ocd-jurisdiction/country:us/state:il/place:chicago/government'
-OCD_CITY_COUNCIL_ID = 'ocd-organization/ef168607-9135-4177-ad8e-c1f7a4806c3a'
+OCD_CITY_COUNCIL_NAME = 'Sacramento City Council'
 CITY_COUNCIL_NAME = 'Sacramento City Council'
-LEGISLATIVE_SESSIONS = ['2007', '2011', '2015'] # the last one in this list should be the current legislative session
-CITY_NAME = 'Chicago'
-CITY_NAME_SHORT = 'Chicago'
+OCD_JURISDICTION_IDS = ['ocd-jurisdiction/country:us/state:ca/place:sacramento/government']
+LEGISLATIVE_SESSIONS = ['2007', '2011', '2015', '2019'] # the last one in this list should be the current legislative session
+CITY_NAME = 'Sacramento'
+CITY_NAME_SHORT = 'Sacramento'
 
 # VOCAB SETTINGS FOR FRONT-END DISPLAY
 CITY_VOCAB = {
     'MUNICIPAL_DISTRICT': 'Ward',       # e.g. 'District'
-    'SOURCE': 'Chicago City Clerk',
+    'SOURCE': 'Sacramento City Clerk',
     'COUNCIL_MEMBER': 'Alderman',       # e.g. 'Council Member'
     'COUNCIL_MEMBERS': 'Aldermen',      # e.g. 'Council Members'
     'EVENTS': 'Meetings',               # label for the events listing, e.g. 'Events'
@@ -29,7 +29,7 @@ APP_NAME = 'city'
 
 # this is for populating meta tags
 SITE_META = {
-    'site_name' : '',       # e.g. 'Chicago Councilmatc'
+    'site_name' : 'Sacramento Councilmatic',       # e.g. 'Chicago Councilmatc'
     'site_desc' : '',       # e.g. 'City Council, demystified. Keep tabs on Chicago legislation, aldermen, & meetings.'
     'site_author' : '',     # e.g. 'DataMade'
     'site_url' : '',        # e.g. 'https://chicago.councilmatic.org'
@@ -37,7 +37,7 @@ SITE_META = {
     'twitter_creator': '',  # e.g. '@DataMadeCo'
 }
 
-LEGISTAR_URL = ''           # e.g. 'https://chicago.legistar.com/Legislation.aspx'
+LEGISTAR_URL = 'http://sacramento.granicus.com/'           # e.g. 'https://chicago.legistar.com/Legislation.aspx'
 
 
 # this is for the boundaries of municipal districts, to add
@@ -68,16 +68,11 @@ FOOTER_CREDITS = [
 # this is the default text in search bars
 SEARCH_PLACEHOLDER_TEXT = '' # e.g. 'police, zoning, O2015-7825, etc.'
 
-
-
 # these should live in APP_NAME/static/
 IMAGES = {
     'favicon': 'images/favicon.ico',
     'logo': 'images/logo.png',
 }
-
-
-
 
 # THE FOLLOWING ARE VOCAB SETTINGS RELEVANT TO DATA MODELS, LOGIC
 # (this is diff from VOCAB above, which is all for the front end)
@@ -94,8 +89,6 @@ COMMITTEE_CHAIR_TITLE = 'Chairman'
 # this is the anme of the role of committee members,
 # as stored in legistar
 COMMITTEE_MEMBER_TITLE = 'Member'
-
-
 
 
 # this is for convenience, & used to populate a table
@@ -140,3 +133,6 @@ MANUAL_HEADSHOTS = {
 EXTRA_TITLES = {
     # e.g. 'emanuel-rahm': 'Mayor',
 }
+
+# whether the app is using django-councilmatic-notifications
+USING_NOTIFICATIONS = False

@@ -14,11 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 
+from councilmatic_core.views import (CouncilmaticFacetedSearchView,
+                                     CouncilmaticSearchForm)
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.views.generic.base import RedirectView
 from haystack.query import SearchQuerySet
-from councilmatic_core.views import CouncilmaticSearchForm, CouncilmaticFacetedSearchView
 
 sqs = SearchQuerySet().facet('bill_type')\
                       .facet('sponsorships', sort='index')\
@@ -29,8 +30,8 @@ sqs = SearchQuerySet().facet('bill_type')\
                       .highlight()
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^search/', CouncilmaticFacetedSearchView(searchqueryset=sqs, 
-                                       form_class=CouncilmaticSearchForm)),
+    # url(r'^admin/', include(admin.site.urls)),
+    url(r'^search/', CouncilmaticFacetedSearchView(searchqueryset=sqs,
+                                                   form_class=CouncilmaticSearchForm)),
     url(r'', include('councilmatic_core.urls')),
 ]

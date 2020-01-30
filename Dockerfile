@@ -4,8 +4,9 @@ ENV PYTHONUNBUFFERED 1
 RUN apt-get update \
     && apt-get -y install libpq-dev python-dev python3-dev musl-dev libgdal-dev
 
-RUN adduser pupa
+RUN useradd -ms /bin/bash pupa
 USER pupa
+
 
 COPY --chown=pupa:pupa . /home/pupa/councilmatic
 
